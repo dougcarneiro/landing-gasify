@@ -119,7 +119,7 @@ const RegisterForm = () => {
             <div className="mb-5">
               <label
                 htmlFor="name"
-                className="block mb-2 font-medium text-gray-900"
+                className="block mb-2 font-medium text-green-900"
               >
                 Nome*
               </label>
@@ -129,7 +129,7 @@ const RegisterForm = () => {
                 value={formData.name}
                 onBlur={handleBlur}
                 onChange={handleChange}
-                className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                className="shadow-sm bg-gray-50 border border-green-300 text-green-900  rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
                 placeholder="Seu nome completo"
                 required
               />
@@ -138,7 +138,7 @@ const RegisterForm = () => {
             <div className="mb-5">
               <label
                 htmlFor="phone"
-                className="block mb-2 font-medium text-gray-900"
+                className="block mb-2 font-medium text-green-900"
               >
                 Telefone*
               </label>
@@ -147,7 +147,7 @@ const RegisterForm = () => {
                 id="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                className="shadow-sm bg-gray-50 border border-green-300 text-green-900  rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
                 placeholder="(xx) xxxxx-xxxx"
                 maxLength={15}
                 required
@@ -157,7 +157,7 @@ const RegisterForm = () => {
             <div className="mb-5">
               <label
                 htmlFor="email"
-                className="block mb-2 font-medium text-gray-900"
+                className="block mb-2 font-medium text-green-900"
               >
                 Email*
               </label>
@@ -166,7 +166,7 @@ const RegisterForm = () => {
                 id="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                className="shadow-sm bg-gray-50 border border-green-300 text-green-900 rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
                 placeholder="seu@email.com"
                 required
               />
@@ -175,7 +175,7 @@ const RegisterForm = () => {
             <div className="mb-5">
               <label
                 htmlFor="cep"
-                className="block mb-2 font-medium text-gray-900"
+                className="block mb-2 font-medium text-green-900"
               >
                 CEP*
               </label>
@@ -186,7 +186,7 @@ const RegisterForm = () => {
                 onChange={handleChange}
                 onBlur={handleCepBlur}
                 maxLength="9"
-                className={`shadow-sm bg-gray-50 border text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ${cepError ? "border-red-500" : "border-gray-300"}`}
+                className={`shadow-sm bg-gray-50 border text-green-900  rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 ${cepError ? "border-red-500" : "border-green-300"}`}
                 placeholder="58010-000"
                 required
               />
@@ -200,7 +200,7 @@ const RegisterForm = () => {
             <div className="mb-5">
               <label
                 htmlFor="street"
-                className="block mb-2  font-medium text-gray-900"
+                className="block mb-2  font-medium text-green-900"
               >
                 Rua
               </label>
@@ -209,7 +209,7 @@ const RegisterForm = () => {
                 id="street"
                 value={formData.street}
                 onChange={handleChange}
-                className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                className="shadow-sm bg-gray-50 border border-green-300 text-green-900  rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
                 placeholder="Rua"
                 required
               />
@@ -218,7 +218,7 @@ const RegisterForm = () => {
             <div className="mb-5">
               <label
                 htmlFor="number"
-                className="block mb-2  font-medium text-gray-900"
+                className="block mb-2  font-medium text-green-900"
               >
                 Número
               </label>
@@ -227,7 +227,7 @@ const RegisterForm = () => {
                 id="number"
                 value={formData.number}
                 onChange={handleChange}
-                className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                className="shadow-sm bg-gray-50 border border-green-300 text-green-900  rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
                 placeholder="Número"
                 required
               />
@@ -236,7 +236,7 @@ const RegisterForm = () => {
             <div className="mb-5">
               <label
                 htmlFor="neighborhood"
-                className="block mb-2  font-medium text-gray-900"
+                className="block mb-2 font-medium text-green-900"
               >
                 Bairro
               </label>
@@ -245,7 +245,7 @@ const RegisterForm = () => {
                 id="neighborhood"
                 value={formData.neighborhood}
                 onChange={handleChange}
-                className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                className="shadow-sm bg-gray-50 border border-green-300 text-green-900  rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
                 placeholder="Bairro"
                 required
               />
@@ -254,7 +254,7 @@ const RegisterForm = () => {
             <div className="mb-5">
               <label
                 htmlFor="city"
-                className="block mb-2  font-medium text-gray-900"
+                className="block mb-2  font-medium text-green-900"
               >
                 Cidade
               </label>
@@ -263,7 +263,7 @@ const RegisterForm = () => {
                 id="city"
                 value={formData.city}
                 onChange={handleChange}
-                className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                className="shadow-sm bg-gray-50 border border-green-300 text-green-900  rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
                 placeholder="Cidade"
                 required
               />
@@ -272,7 +272,7 @@ const RegisterForm = () => {
             <div className="mb-5">
               <label
                 htmlFor="state"
-                className="block mb-2  font-medium text-gray-900"
+                className="block mb-2  font-medium text-green-900"
               >
                 Estado
               </label>
@@ -281,7 +281,7 @@ const RegisterForm = () => {
                 id="state"
                 value={formData.state}
                 onChange={handleChange}
-                className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                className="shadow-sm bg-gray-50 border border-green-300 text-green-900  rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
                 placeholder="Estado"
                 required
               />
@@ -291,7 +291,7 @@ const RegisterForm = () => {
           <div className="col-span-2 flex justify-between">
             <button
               type="button"
-              className="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg  px-4 py-2.5 text-center"
+              className="text-white bg-green-700 hover:bg-green-800 focus:green-ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg  px-4 py-2.5 text-center"
               onClick={handleSubmit}
             >
               Enviar
@@ -299,7 +299,7 @@ const RegisterForm = () => {
             <button
               type="button"
               onClick={handleReset}
-              className="text-white bg-gray-500 hover:bg-gray-600 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg  px-4 py-2.5 text-center"
+              className="text-white bg-gray-500 hover:bg-gray-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg  px-4 py-2.5 text-center"
             >
               Limpar
             </button>
