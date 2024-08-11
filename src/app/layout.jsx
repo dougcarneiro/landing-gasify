@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="favicon.ico" type="image/x-icon" />
         <title>Gasify</title>
       </head>
-      <body className={poppins.className}>{children}</body>
+      <body className={`${poppins.className} font-poppins`}>{children}</body>
     </html>
   );
 }
