@@ -25,13 +25,18 @@ export default function Divulgacao() {
           <image.GasifyLogo />
           <image.Gasify />
         </a>
-        <div className="flex items-center justify-between max-w-[40vw] min-w-[40vw]">
-          <Link to="divulgacao" smooth={true} duration={500} className="text-xl text-green-800 cursor-pointer">
-            Benefícios
-          </Link>
-          <Link to="esg" smooth={true} duration={500} className="text-xl text-green-800 cursor-pointer">
-            ESG
-          </Link>
+        <div className="flex items-center justify-between max-w-[45vw] min-w-[45vw]">
+          <div className="flex gap-8">
+            <Link to="divulgacao" smooth={true} duration={700} className="text-xl text-green-800 cursor-pointer">
+              Benefícios
+            </Link>
+            <Link to="esg" smooth={true} duration={900} className="text-xl text-green-800 cursor-pointer">
+              ESG
+            </Link>
+            <Link to="footer" smooth={true} duration={900} className="text-xl text-green-800 cursor-pointer">
+              Nossas Redes
+            </Link>
+          </div>
           <div className="text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-xl px-4 py-2.5 text-center">
             <Link
               to="form"
@@ -177,7 +182,11 @@ export default function Divulgacao() {
           <RegisterForm />
         </Element>
       </main>
-      <footer className="relative ">
+      <Element 
+        className="relative"
+        name="footer"
+        id="footer"
+      >
         <image.Planta />
         <div className="flex flex-col gap-8 justify-center items-center h-[340px] bg-green-800 text-white">
           <p className="text-white text-2xl font-semibold">
@@ -189,7 +198,7 @@ export default function Divulgacao() {
           <FontAwesomeIcon icon={faYoutube} size="2x" className="text-white mx-4"/>
           </div>
         </div>
-      </footer>
+      </Element>
     </>
   );
 }
