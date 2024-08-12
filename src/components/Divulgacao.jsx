@@ -174,9 +174,17 @@ export default function Divulgacao() {
           <RegisterForm />
         </Element>
       </main>
-      <footer className="relative">
+      <footer className="relative ">
         <image.Planta />
-        <image.Footer />
+        <div className="flex justify-center items-center h-[340px] bg-green-800 text-white  ">
+          <p className="text-white text-2xl font-semibold">
+            © 2023 Gasify. Todos os direitos reservados.
+            
+          </p>
+          <div>
+
+          </div>
+        </div>
       </footer>
     </>
   );

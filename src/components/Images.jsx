@@ -127,7 +127,7 @@ export function Planta() {
         <img
           src="/images/planta.png"
           alt="Planta icon"
-          className="absolute bottom-0 left-0 w-[30rem] h-[30rem] z-[-1] lg:z-[0]"
+          className="absolute bottom-0 right-0 w-[30rem] h-[30rem] z-[-1] lg:z-[0]"
         />
     )
 }
