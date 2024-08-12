@@ -3,6 +3,9 @@
 import * as image from "../components/Images";
 import RegisterForm from "./Form";
 import { Link, Element } from "react-scroll";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faInstagram, faXTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
+
 
 export default function Divulgacao() {
   return (
@@ -73,7 +76,7 @@ export default function Divulgacao() {
             Expanda seu posto de combustível com sustentabilidade!
           </p>
           </Element>
-        <section className="flex justify-center items-center mb-[10rem]">
+        <section className="flex justify-center items-center mb-[2rem]">
           <div id="cards-divulgacao" className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div
               id="card"
@@ -149,7 +152,7 @@ export default function Divulgacao() {
         <Element
           name="esg"
           id="esg"
-          className="flex flex-col text-center scale-75 gap-y-8 max-w-[1200px] m-auto"
+          className="flex flex-col text-center scale-75 gap-y-8 max-w-[1200px] m-auto mb-[64px]"
         >
           <h2 className="text-green-900 text-5xl font-semibold  m-8">
             ESG: o que significa e benefícios ao adequar o seu negócio
@@ -176,13 +179,14 @@ export default function Divulgacao() {
       </main>
       <footer className="relative ">
         <image.Planta />
-        <div className="flex justify-center items-center h-[340px] bg-green-800 text-white  ">
+        <div className="flex flex-col gap-8 justify-center items-center h-[340px] bg-green-800 text-white">
           <p className="text-white text-2xl font-semibold">
             © 2023 Gasify. Todos os direitos reservados.
-            
           </p>
           <div>
-
+          <FontAwesomeIcon icon={faInstagram} size="2x" className="text-white mx-4"/>
+          <FontAwesomeIcon icon={faXTwitter} size="2x" className="text-white mx-4"/>
+          <FontAwesomeIcon icon={faYoutube} size="2x" className="text-white mx-4"/>
           </div>
         </div>
       </footer>
