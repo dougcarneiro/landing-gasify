@@ -8,6 +8,7 @@ const RegisterForm = () => {
     name: "",
     phone: "",
     email: "",
+    observations: "",
     cep: "",
     street: "",
     number: "",
@@ -69,12 +70,8 @@ const RegisterForm = () => {
     const { id, value } = e.target;
     setFormData({
       ...formData,
-      [id]: value,
+      [id]: value.trim(),
     });
-
-    if (id === "name") {
-      setFormData((prevData) => ({ ...prevData, name: value.trim() }));
-    }
   };
 
   const handleReset = () => {
@@ -104,6 +101,7 @@ const RegisterForm = () => {
 
   const handleCepBlur = async (e) => {
     const cep = e.target.value.replace(/\D/g, "");
+    setFormData((prevData) => ({ ...prevData, cep: e.target.value.trim() }));
     if (cep.length === 8) {
       try {
         const url = `https://viacep.com.br/ws/${cep}/json/`;
@@ -119,7 +117,7 @@ const RegisterForm = () => {
           });
           setCepError("");
         } else {
-          setCepError("CEP inválido");
+          setCepError("CEP não encontrado na base de dados");
         }
       } catch (error) {
         setCepError("Erro ao buscar CEP");
@@ -135,13 +133,18 @@ const RegisterForm = () => {
         Você gostou dessa ideia? Deixe seus dados que iremos entrar em contato.
       </h1>
       <div className="bg-gray-100 p-6 rounded-lg shadow-lg w-full max-w-4xl text-md ">
-        <div id="checkmark" className={`text-green-800 ${checkmarkVisibility} flex flex-col justify-center items-center`}>
+        <div
+          id="checkmark"
+          className={`text-green-800 ${checkmarkVisibility} flex flex-col justify-center items-center`}
+        >
           <Icon
             id="checkmark"
             icon="carbon:checkmark-filled"
             className={`w-[80px] h-[80px]`}
           />
-          <span className="mt-10 text-center">Enviado! Nossa equipe irá entrar em contato muito em breve.</span>
+          <span className="mt-10 text-center">
+            Enviado! Nossa equipe irá entrar em contato muito em breve.
+          </span>
         </div>
         <form
           onSubmit={handleSubmit}
@@ -179,6 +182,7 @@ const RegisterForm = () => {
                 id="phone"
                 value={formData.phone}
                 onChange={handleChange}
+                onBlur={handleBlur}
                 className="shadow-sm bg-gray-50 border border-green-300 text-green-900  rounded-lg focus:outline-green-500 focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
                 placeholder="(xx) xxxxx-xxxx"
                 maxLength={15}
@@ -198,6 +202,7 @@ const RegisterForm = () => {
                 id="email"
                 value={formData.email}
                 onChange={handleChange}
+                onBlur={handleBlur}
                 className="shadow-sm bg-gray-50 border border-green-300 text-green-900 rounded-lg focus:outline-green-500 focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
                 placeholder="seu@email.com"
                 required
@@ -212,7 +217,7 @@ const RegisterForm = () => {
               </label>
               <textarea
                 type="text"
-                id="text"
+                id="observations"
                 rows={9}
                 maxLength={300}
                 value={formData.observations}
@@ -230,7 +235,7 @@ const RegisterForm = () => {
                 htmlFor="cep"
                 className="block mb-2 font-medium text-green-900"
               >
-                CEP*
+                CEP
               </label>
               <input
                 type="text"
@@ -241,7 +246,6 @@ const RegisterForm = () => {
                 maxLength="9"
                 className={`shadow-sm bg-gray-50 border  text-green-900  rounded-lg focus:ring-green-500  focus:outline-green-500 focus:border-green-500 block w-full p-2.5 ${cepError ? "border-red-500" : "border-green-300"}`}
                 placeholder="58010-000"
-                required
               />
               {cepError && <p className="text-red-500  mt-1">{cepError}</p>}
             </div>
