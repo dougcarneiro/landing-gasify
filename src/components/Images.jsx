@@ -6,7 +6,7 @@ export function Gasify() {
     return (
         <img
           src="/images/gasify.svg"
-          className="hidden lg:flex"
+          className="lg:flex"
           alt="Picture of the author"
         />
     )
@@ -16,8 +16,9 @@ export function GasifyLogo() {
     return (
         <img
           src="/images/logoLS-no-bg.svg"
-          className="hidden lg:flex"
+          className="lg:flex"
           alt="Picture of the author"
+            
         />
     )
 }
@@ -116,7 +117,7 @@ export function GarotoDivulgacao() {
         <img
           src="/images/GarotoDivulgacao.png"
           alt="GarotoDivulgacao icon"
-          className="max-w-[800px] h-[800px]"
+          className="mb-10 hidden xl:block xl:mb-0 xl:max-w-[600px] xl:h-[600px]"
         />
     )
 }

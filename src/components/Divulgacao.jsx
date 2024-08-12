@@ -1,18 +1,19 @@
-import * as image from "../components/images";
-import RegisterForm from "./form";
+import * as image from "../components/Images";
+import RegisterForm from "./Form";
 
 export default function Divulgacao() {
   return (
     <>
       <div className="scale-90"></div>
       <header className="bg-white content-center max-w-[100vw] flex rounded-3xl justify-between mx-12 mt-12 mb-6 p-4 shadow-md">
-        <div
+        <a
+          href="#"
           id="gasify-logo"
           className="flex content-center items-center space-x-2"
         >
           <image.GasifyLogo />
           <image.Gasify />
-        </div>
+        </a>
         <div className="text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-xl  px-4 py-2.5 text-center">
           <a
             href="#form"
@@ -22,10 +23,10 @@ export default function Divulgacao() {
           </a>
         </div>
       </header>
-      <main>
+      <main className="overflow-x-hidden">
         <section
           id="dados"
-          className="flex gap-x-16 justify-center items-center h-[300px]"
+          className="flex gap-x-16 justify-center items-center h-[300px] p-10"
         >
           <div className="flex flex-col gap-y-4 text-center">
             <p className="text-green-800 text-5xl font-semibold">+50</p>
@@ -48,17 +49,17 @@ export default function Divulgacao() {
         </section>
         <section
           id="divulgacao"
-          className="flex flex-col justify-center items-center h-[300px]"
+          className="flex flex-col justify-center items-center h-[300px] text-center"
         >
-          <p className="text-green-800 text-4xl font-semibold ">
+          <p className="text-green-800 text-4xl font-semibold">
             Expanda seu posto de combustível com sustentabilidade!
           </p>
         </section>
-        <section className="flex justify-center items-end mb-[10rem]">
-          <div id="cards-divulgacao" className="grid grid-cols-2">
+        <section className="flex justify-center items-center mb-[10rem]">
+          <div id="cards-divulgacao" className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div
               id="card"
-              className="w-[20rem] h-[20rem] flex flex-col shadow-2xl  justify-center m-[3rem]"
+              className="w-[20rem] h-[20rem] flex flex-col shadow-2xl justify-center m-[3rem]"
             >
               <div className="flex-col flex justify-center items-center  gap-8 content-center">
                 <image.Card1 />

@@ -1,4 +1,4 @@
-import Divulgacao from "@/components/divulgacao";
+import Divulgacao from "@/components/Divulgacao";
 
 export default function Index() {
   return <Divulgacao />;

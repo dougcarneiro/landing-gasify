@@ -1,5 +1,7 @@
 "use client";
 import React, { useState } from "react";
+import { Icon } from "@iconify/react";
+import CustomSnackbar from "./CustomToast";
 
 const RegisterForm = () => {
   const [formData, setFormData] = useState({
@@ -15,6 +17,23 @@ const RegisterForm = () => {
   });
 
   const [cepError, setCepError] = useState("");
+  const [checkmarkVisibility, setCheckmarkVisibility] = useState("hidden");
+  const [formVisibility, setFormVisibility] = useState("block");
+
+  const [snackbarState, setSnackbarState] = useState({
+    open: false,
+    vertical: "top",
+    horizontal: "center",
+  });
+  const { vertical, horizontal, open } = snackbarState;
+
+  const handleClick = (newState) => () => {
+    setSnackbarState({ ...newState, open: true });
+  };
+
+  const handleClose = () => {
+    setSnackbarState({ ...snackbarState, open: false });
+  };
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -63,6 +82,7 @@ const RegisterForm = () => {
       name: "",
       phone: "",
       email: "",
+      observations: "",
       cep: "",
       street: "",
       number: "",
@@ -76,6 +96,10 @@ const RegisterForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form Data:", formData);
+    handleClick({ vertical: "top", horizontal: "center" })();
+    handleReset();
+    setCheckmarkVisibility("block");
+    setFormVisibility("hidden");
   };
 
   const handleCepBlur = async (e) => {
@@ -106,16 +130,24 @@ const RegisterForm = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-fit p-24 bg-gray-200">
-      <h1 className="text-3xl font-semibold mb-20 text-center text-green-900">
+    <div className="flex flex-col items-center justify-center min-h-fit xl:p-24 bg-gray-200">
+      <h1 className="text-3xl font-semibold mb-20 text-center text-green-900 align-middle mt-10 md:mt-0">
         Você gostou dessa ideia? Deixe seus dados que iremos entrar em contato.
       </h1>
-      <div className="bg-gray-100 p-6 rounded-lg shadow-lg w-full max-w-4xl text-md">
+      <div className="bg-gray-100 p-6 rounded-lg shadow-lg w-full max-w-4xl text-md ">
+        <div id="checkmark" className={`text-green-800 ${checkmarkVisibility} flex flex-col justify-center items-center`}>
+          <Icon
+            id="checkmark"
+            icon="carbon:checkmark-filled"
+            className={`w-[80px] h-[80px]`}
+          />
+          <span className="mt-10 text-center">Enviado! Nossa equipe irá entrar em contato muito em breve.</span>
+        </div>
         <form
           onSubmit={handleSubmit}
-          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          className={`grid grid-cols-1 md:grid-cols-2 gap-6 ${formVisibility}`}
         >
-          <div>
+          <div className="col-span-1">
             <div className="mb-5">
               <label
                 htmlFor="name"
@@ -129,7 +161,7 @@ const RegisterForm = () => {
                 value={formData.name}
                 onBlur={handleBlur}
                 onChange={handleChange}
-                className="shadow-sm bg-gray-50 border border-green-300 text-green-900  rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+                className="shadow-sm bg-gray-50 border border-green-300 text-green-900 rounded-lg focus:ring-green-500 focus:border-green-500 focus:outline-green-500 block w-full p-2.5"
                 placeholder="Seu nome completo"
                 required
               />
@@ -147,7 +179,7 @@ const RegisterForm = () => {
                 id="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                className="shadow-sm bg-gray-50 border border-green-300 text-green-900  rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+                className="shadow-sm bg-gray-50 border border-green-300 text-green-900  rounded-lg focus:outline-green-500 focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
                 placeholder="(xx) xxxxx-xxxx"
                 maxLength={15}
                 required
@@ -166,12 +198,33 @@ const RegisterForm = () => {
                 id="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="shadow-sm bg-gray-50 border border-green-300 text-green-900 rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+                className="shadow-sm bg-gray-50 border border-green-300 text-green-900 rounded-lg focus:outline-green-500 focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
                 placeholder="seu@email.com"
                 required
               />
             </div>
+            <div className="mb-5 mt-3">
+              <label
+                htmlFor="text"
+                className="block mb-2 font-medium text-green-900"
+              >
+                Observações
+              </label>
+              <textarea
+                type="text"
+                id="text"
+                rows={9}
+                maxLength={300}
+                value={formData.observations}
+                onBlur={handleBlur}
+                onChange={handleChange}
+                className="mt-3 shadow-sm bg-gray-50 border border-green-300 text-green-900 rounded-lg focus:ring-green-500 focus:border-green-500 focus:outline-green-500 block w-full p-2.5"
+                placeholder="Nos conte algo sobre você"
+              />
+            </div>
+          </div>
 
+          <div className="col-span-2 md:col-span-1">
             <div className="mb-5">
               <label
                 htmlFor="cep"
@@ -186,17 +239,12 @@ const RegisterForm = () => {
                 onChange={handleChange}
                 onBlur={handleCepBlur}
                 maxLength="9"
-                className={`shadow-sm bg-gray-50 border text-green-900  rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 ${cepError ? "border-red-500" : "border-green-300"}`}
+                className={`shadow-sm bg-gray-50 border  text-green-900  rounded-lg focus:ring-green-500  focus:outline-green-500 focus:border-green-500 block w-full p-2.5 ${cepError ? "border-red-500" : "border-green-300"}`}
                 placeholder="58010-000"
                 required
               />
-              {cepError && (
-                <p className="text-red-500  mt-1">{cepError}</p>
-              )}
+              {cepError && <p className="text-red-500  mt-1">{cepError}</p>}
             </div>
-          </div>
-
-          <div>
             <div className="mb-5">
               <label
                 htmlFor="street"
@@ -209,9 +257,8 @@ const RegisterForm = () => {
                 id="street"
                 value={formData.street}
                 onChange={handleChange}
-                className="shadow-sm bg-gray-50 border border-green-300 text-green-900  rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+                className="shadow-sm bg-gray-50 border border-green-300 text-green-900  focus:outline-green-500  rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
                 placeholder="Rua"
-                required
               />
             </div>
 
@@ -227,9 +274,8 @@ const RegisterForm = () => {
                 id="number"
                 value={formData.number}
                 onChange={handleChange}
-                className="shadow-sm bg-gray-50 border border-green-300 text-green-900  rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+                className="shadow-sm bg-gray-50 border border-green-300 text-green-900  focus:outline-green-500  rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
                 placeholder="Número"
-                required
               />
             </div>
 
@@ -245,9 +291,8 @@ const RegisterForm = () => {
                 id="neighborhood"
                 value={formData.neighborhood}
                 onChange={handleChange}
-                className="shadow-sm bg-gray-50 border border-green-300 text-green-900  rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+                className="shadow-sm bg-gray-50 border border-green-300 text-green-900  focus:outline-green-500  rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
                 placeholder="Bairro"
-                required
               />
             </div>
 
@@ -263,9 +308,8 @@ const RegisterForm = () => {
                 id="city"
                 value={formData.city}
                 onChange={handleChange}
-                className="shadow-sm bg-gray-50 border border-green-300 text-green-900  rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+                className="shadow-sm bg-gray-50 border border-green-300 text-green-900  focus:outline-green-500  rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
                 placeholder="Cidade"
-                required
               />
             </div>
 
@@ -281,18 +325,17 @@ const RegisterForm = () => {
                 id="state"
                 value={formData.state}
                 onChange={handleChange}
-                className="shadow-sm bg-gray-50 border border-green-300 text-green-900  rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+                className="shadow-sm bg-gray-50 border border-green-300 text-green-900  focus:outline-green-500  rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
                 placeholder="Estado"
-                required
               />
             </div>
           </div>
 
           <div className="col-span-2 flex justify-between">
             <button
-              type="button"
-              className="text-white bg-green-700 hover:bg-green-800 focus:green-ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg  px-4 py-2.5 text-center"
+              type="submit"
               onClick={handleSubmit}
+              className="text-white bg-green-700 hover:bg-green-800 focus:green-ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg  px-4 py-2.5 text-center"
             >
               Enviar
             </button>
@@ -305,6 +348,13 @@ const RegisterForm = () => {
             </button>
           </div>
         </form>
+        <CustomSnackbar
+          anchorOrigin={{ vertical, horizontal }}
+          open={open}
+          onClose={handleClose}
+          message="Formulário enviado com sucesso!"
+          key={vertical + horizontal}
+        />
       </div>
     </div>
   );
