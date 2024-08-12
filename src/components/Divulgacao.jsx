@@ -1,9 +1,17 @@
+"use client";
+
 import * as image from "../components/Images";
 import RegisterForm from "./Form";
+import { Link, Element } from "react-scroll";
 
 export default function Divulgacao() {
   return (
     <>
+      <style jsx global>{`
+        html {
+          scroll-behavior: smooth;
+        }
+      `}</style>
       <div className="scale-90"></div>
       <header className="bg-white content-center max-w-[100vw] flex rounded-3xl justify-between mx-12 mt-12 mb-6 p-4 shadow-md">
         <a
@@ -14,13 +22,23 @@ export default function Divulgacao() {
           <image.GasifyLogo />
           <image.Gasify />
         </a>
-        <div className="text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-xl  px-4 py-2.5 text-center">
-          <a
-            href="#form"
-            className="flex content-center items-center space-x-2 text-xl text-white font-semibold border-green focus:text-green-800"
-          >
-            Queremos conhecer você!
-          </a>
+        <div className="flex items-center justify-between max-w-[40vw] min-w-[40vw]">
+          <Link to="divulgacao" smooth={true} duration={500} className="text-xl text-green-800 cursor-pointer">
+            Benefícios
+          </Link>
+          <Link to="esg" smooth={true} duration={500} className="text-xl text-green-800 cursor-pointer">
+            ESG
+          </Link>
+          <div className="text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-xl px-4 py-2.5 text-center">
+            <Link
+              to="form"
+              smooth={true}
+              duration={500}
+              className="flex content-center items-center space-x-2 text-xl text-white font-semibold border-green focus:text-green-800 cursor-pointer"
+            >
+              Queremos conhecer<br/> você!
+            </Link>
+          </div>
         </div>
       </header>
       <main className="overflow-x-hidden">
@@ -47,14 +65,14 @@ export default function Divulgacao() {
             </p>
           </div>
         </section>
-        <section
+        <Element name="divulgacao"
           id="divulgacao"
           className="flex flex-col justify-center items-center h-[300px] text-center"
         >
           <p className="text-green-800 text-4xl font-semibold">
             Expanda seu posto de combustível com sustentabilidade!
           </p>
-        </section>
+          </Element>
         <section className="flex justify-center items-center mb-[10rem]">
           <div id="cards-divulgacao" className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div
@@ -128,7 +146,8 @@ export default function Divulgacao() {
           </div>
           <image.GarotoDivulgacao />
         </section>
-        <section
+        <Element
+          name="esg"
           id="esg"
           className="flex flex-col text-center scale-75 gap-y-8 max-w-[1200px] m-auto"
         >
@@ -148,10 +167,12 @@ export default function Divulgacao() {
             Empresas que usam os padrões ESG possuem maior probabilidade de
             sucesso no longo prazo.
           </p>
-        </section>
-        <section id="form">
-          <RegisterForm></RegisterForm>
-        </section>
+        </Element>
+        <Element
+          name="form"
+          id="form">
+          <RegisterForm />
+        </Element>
       </main>
       <footer className="relative">
         <image.Planta />
