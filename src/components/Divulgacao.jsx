@@ -4,8 +4,11 @@ import * as image from "../components/Images";
 import RegisterForm from "./Form";
 import { Link, Element } from "react-scroll";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faInstagram, faXTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
-
+import {
+  faInstagram,
+  faXTwitter,
+  faYoutube,
+} from "@fortawesome/free-brands-svg-icons";
 
 export default function Divulgacao() {
   return (
@@ -27,13 +30,28 @@ export default function Divulgacao() {
         </a>
         <div className="flex items-center justify-between max-w-[45vw] min-w-[45vw]">
           <div className="flex gap-8">
-            <Link to="divulgacao" smooth={true} duration={700} className="text-xl text-green-800 cursor-pointer">
+            <Link
+              to="divulgacao"
+              smooth={true}
+              duration={700}
+              className="text-xl text-green-800 cursor-pointer"
+            >
               Benefícios
             </Link>
-            <Link to="esg" smooth={true} duration={900} className="text-xl text-green-800 cursor-pointer">
+            <Link
+              to="esg"
+              smooth={true}
+              duration={900}
+              className="text-xl text-green-800 cursor-pointer"
+            >
               ESG
             </Link>
-            <Link to="footer" smooth={true} duration={900} className="text-xl text-green-800 cursor-pointer">
+            <Link
+              to="footer"
+              smooth={true}
+              duration={900}
+              className="text-xl text-green-800 cursor-pointer"
+            >
               Nossas Redes
             </Link>
           </div>
@@ -44,7 +62,8 @@ export default function Divulgacao() {
               duration={500}
               className="flex content-center items-center space-x-2 text-xl text-white font-semibold border-green focus:text-green-800 cursor-pointer"
             >
-              Queremos conhecer<br/> você!
+              Queremos conhecer
+              <br /> você!
             </Link>
           </div>
         </div>
@@ -73,16 +92,20 @@ export default function Divulgacao() {
             </p>
           </div>
         </section>
-        <Element name="divulgacao"
+        <Element
+          name="divulgacao"
           id="divulgacao"
           className="flex flex-col justify-center items-center h-[300px] text-center"
         >
           <p className="text-green-800 text-4xl font-semibold">
             Expanda seu posto de combustível com sustentabilidade!
           </p>
-          </Element>
+        </Element>
         <section className="flex justify-center items-center mb-[2rem]">
-          <div id="cards-divulgacao" className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div
+            id="cards-divulgacao"
+            className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          >
             <div
               id="card"
               className="w-[20rem] h-[20rem] flex flex-col shadow-2xl justify-center m-[3rem]"
@@ -176,29 +199,42 @@ export default function Divulgacao() {
             sucesso no longo prazo.
           </p>
         </Element>
-        <Element
-          name="form"
-          id="form">
+        <Element name="form" id="form">
           <RegisterForm />
         </Element>
       </main>
-      <Element 
-        className="relative"
-        name="footer"
-        id="footer"
-      >
+      <Element className="relative" name="footer" id="footer">
         <image.Planta />
         <div className="flex flex-col gap-8 justify-center items-center h-[340px] bg-green-800 text-white">
           <p className="text-white text-2xl font-semibold">
-            © 2023 Gasify. Todos os direitos reservados.
+            © 2024 Gasify. Todos os direitos reservados.
           </p>
           <div>
-          <FontAwesomeIcon icon={faInstagram} size="2x" className="text-white mx-4"/>
-          <FontAwesomeIcon icon={faXTwitter} size="2x" className="text-white mx-4"/>
-          <FontAwesomeIcon icon={faYoutube} size="2x" className="text-white mx-4"/>
+            <a href="https://www.instagram.com" target="_blank">
+              <FontAwesomeIcon
+                icon={faInstagram}
+                size="2x"
+                className="text-white mx-4"
+              />
+            </a>
+            <a href="https://www.x.com" target="_blank">
+              <FontAwesomeIcon
+                icon={faXTwitter}
+                size="2x"
+                className="text-white mx-4"
+              />
+            </a>
+            <a href="https://www.youtube.com.br" target="_blank">
+              <FontAwesomeIcon
+                icon={faYoutube}
+                size="2x"
+                className="text-white mx-4"
+              />
+            </a>
           </div>
         </div>
       </Element>
     </>
   );
 }
+
