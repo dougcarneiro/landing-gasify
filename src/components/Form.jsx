@@ -338,7 +338,6 @@ const RegisterForm = () => {
           <div className="col-span-2 flex justify-between">
             <button
               type="submit"
-              onClick={handleSubmit}
               className="text-white bg-green-700 hover:bg-green-800 focus:green-ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg  px-4 py-2.5 text-center"
             >
               Enviar
