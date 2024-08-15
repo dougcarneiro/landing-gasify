@@ -28,7 +28,7 @@ export default function Divulgacao() {
           <image.GasifyLogo />
           <image.Gasify />
         </a>
-        <div className="flex items-center justify-between max-w-[45vw] min-w-[45vw]">
+        <div className="flex items-center justify-end max-w-[45vw] min-w-[45vw]">
           <div className="flex gap-8">
             <Link
               to="divulgacao"
@@ -55,7 +55,7 @@ export default function Divulgacao() {
               Nossas Redes
             </Link>
           </div>
-          <div className="text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-xl px-4 py-2.5 text-center">
+          <div className="ml-5 text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-xl px-4 py-2.5 text-center">
             <Link
               to="form"
               smooth={true}
